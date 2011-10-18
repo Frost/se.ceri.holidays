@@ -1,0 +1,13 @@
+Holidays
+
+This is an app for WebOS devices that shows what weekdays (and dates) swedish holidays occur a given year.
+It's built using the enyo framework.
+
+Requirements
+
+Your device needs to have the enyo framework installed, so you either need a TouchPad, a Pre3, or have installed the "magic" maps update that installed enyo on older devices.
+
+License
+
+This is free software. If you like it, buy me a beer sometime.
+/Martin Frost

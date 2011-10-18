@@ -1,0 +1,9 @@
+{
+  "id": "se.ceri.holidays",
+  "version": "0.0.1",
+  "vendor": "ceri.se",
+  "type": "web",
+  "main": "index.html",
+  "title": "Swedish Holidays",
+  "uiRevision": "2"
+}
