@@ -19,8 +19,12 @@ enyo.kind({
   },
 
   setupView: function (inSender, inView, year) {
-    inView.setHolidays(this.country.calculateDates(year));
-    inView.setHeaderContent("Swedish Holidays "+ year);
+    inView.setHeaderContent("Swedish Holidays");
+    
+    if (inView.getYear() === null || year != inView.getYear()) {
+      inView.setYear(year);
+      inView.setHolidays(this.country.calculateDates(year));
+    }
 
     return true;
   }

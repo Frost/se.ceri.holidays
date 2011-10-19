@@ -3,6 +3,7 @@ enyo.kind({
   kind: enyo.VFlexBox,
   published: {
     headerContent: "",
+    year: null,
     holidays: []
   },
   components: [
@@ -17,19 +18,15 @@ enyo.kind({
     ]}
   ],
 
-  rendered: function () {
-    this.headerChanged();
-    this.holidaysChanged();
-  },
-
-  headerChanged: function () {
-    this.$.pageHeader.setContent(this.headerContent);
+  yearChanged: function () {
+    this.$.pageHeader.setContent(this.headerContent + " " + this.year);
   },
 
   holidaysChanged: function () {
     for (var index in this.holidays) {
       this.loadHolidays(enyo.VirtualRepeater, index);
     }
+    this.$.holidayList.render();
   },
 
   loadHolidays: function (inSender, inIndex) {
