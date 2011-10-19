@@ -16,16 +16,8 @@ enyo.kind({
           {name: "holidayDate", flex: 1}
         ]}
       ]}
-    ]},
-    {kind: "Toolbar", components: [
-      {kind: "ToolInput", name: "filterInput", hint: "filter...", oninput: "filterChangeTrigger"}
     ]}
   ],
-
-  filterChangeTrigger: function () {
-    console.log("filtertrigger");
-    enyo.job("filterList", enyo.bind(this, "filterList", 400));
-  },
 
   yearChanged: function () {
     this.$.pageHeader.setContent(this.headerContent + " " + this.year);
@@ -57,17 +49,4 @@ enyo.kind({
     }
   },
 
-  filterList: function () {
-    var filter = this.$.filterInput.getValue();
-    console.log("filter: " + filter);
-
-    var selectedValues = [];
-    for (index in this.holidays) {
-      var data = this.holidays[index];
-      if (data && (data.name.indexOf(filter) !== -1 )) {
-        selectedValues.push(data);
-      }
-    }
-    this.setListItems(selectedValues);
-  }
 });

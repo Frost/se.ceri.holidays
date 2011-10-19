@@ -7,8 +7,12 @@ enyo.kind({
       kind: "VirtualCarousel", 
       flex: 1, 
       onSetupView: "setupView", 
+      onSnapFinish: "snapFinish",
       viewControl: {kind: "Cerise.Holidays.HolidayListView"}
-    }
+    },
+    {kind: "Toolbar", components: [
+      {kind: "ToolInput", name: "filterInput", hint: "filter...", oninput: "filterChangeTrigger"}
+    ]}
   ],
 
   create: function () {
@@ -27,5 +31,27 @@ enyo.kind({
     }
 
     return true;
+  },
+
+  snapFinish: function() {
+    this.filterList();
+  },
+
+  filterChangeTrigger: function () {
+    enyo.job("filterList", enyo.bind(this, "filterList", 400));
+  },
+
+  filterList: function () {
+    var filter = this.$.filterInput.getValue();
+    var view = this.$.carousel.fetchCurrentView();
+
+    var selectedValues = [];
+    for (index in view.holidays) {
+      var data = view.holidays[index];
+      if (data && (data.name.indexOf(filter) !== -1 )) {
+        selectedValues.push(data);
+      }
+    }
+    view.setListItems(selectedValues);
   }
 });
