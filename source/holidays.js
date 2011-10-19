@@ -49,7 +49,6 @@ enyo.kind({
     var selectedValues = [];
     for (index in view.holidays) {
       var data = view.holidays[index];
-      console.log(data);
       if (data && (data.name.toLowerCase().indexOf(filter) !== -1 || data.dateString.toLowerCase().indexOf(filter) !== -1 )) {
         selectedValues.push(data);
       }
