@@ -31,9 +31,10 @@ enyo.kind({
 
   loadHolidays: function (inSender, inIndex) {
     var data = this.holidays[inIndex];
+    var datefmt = new enyo.g11n.DateFmt({"format": "EEEE dd MMMM"});
     if (data) {
       this.$.holidayName.setContent(data.name);
-      this.$.holidayDate.setContent(data.date);
+      this.$.holidayDate.setContent(datefmt.format(data.date));
       return true;
     }
   }
