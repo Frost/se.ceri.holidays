@@ -7,11 +7,14 @@ enyo.kind({
     this.year = year;
     this.calculator = new Cerise.DateCalculations(year);
     var dates = [];
+    var datefmt = new enyo.g11n.DateFmt({"format": "EEEE dd MMMM"});
 
     for (var index in this.holidays) {
+      var date = this.holidays[index].date.call(this);
       var day = {
         name: this.holidays[index].name,
-        date: this.holidays[index].date.call(this)
+        date: date,
+        dateString: datefmt.format(date)
       };
       dates[index] = day;
     }
