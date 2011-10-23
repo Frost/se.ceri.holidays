@@ -84,7 +84,7 @@ enyo.kind({
       }
     },
     {
-      name: "Ascension Day (Kristi himmelsfäd)", 
+      name: "Ascension Day (Kristi himmelsfärd)", 
       date: function () {
         var e = this.calculator.easter(); 
         e.setDate(e.getDate() + 39); 
