@@ -1,6 +1,6 @@
 {
   "id": "se.ceri.holidays",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "vendor": "ceri.se",
   "type": "web",
   "main": "index.html",

@@ -19,7 +19,7 @@ enyo.kind({
   create: function () {
     this.inherited(arguments);
     this.country = new Cerise.Holidays.Swedish();
-    this.selectedYear = 2011;
+    this.selectedYear = new Date().getFullYear();
     this.$.carousel.renderViews(this.selectedYear);
   },
 
